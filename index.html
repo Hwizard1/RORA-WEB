@@ -1,197 +1,1153 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RORA - Innovative Ventures & Royal Rebirth Art</title>
-    
-    <!-- Link to the CSS file -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- External SDKs and Libraries from original source -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/_sdk/f432b76fb310b513.telemetry_sdk.js"></script>
-    <script src="/_sdk/0179d719c431a79e.data_sdk.js"></script>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <img id="logoImg" class="logo-img" src="" alt="RORA Logo" onerror="this.style.display='none';" style="display:none;">
-                <div class="logo-text" id="company-name">RORA</div>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#" class="whatsapp-btn" id="whatsappBtn">📱 WhatsApp</a></li>
-            </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
-        </div>
-    </nav>
+ <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260708-05-579f504"}');</script><script src="/_sdk/f432b76fb310b513.telemetry_sdk.js" integrity="sha512-9FJQ55EKmmqhyyik8BhrMVfm0+iYYfb8uOlRsjtkxJMEI97qOVEI4PnHohDjQAtvAep0IOEpdQ64eki0sz62ug=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RORA - Innovative Ventures &amp; Royal Rebirth Art</title>
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Hero Section -->
-    <header class="hero" id="home">
-        <h1 id="tagline">Innovation Meets Excellence</h1>
-        <p id="hero-description">Your trusted partner in Agriculture, Construction, Tourism, Arts & Design, Real Estate, and Retail.</p>
-        <a href="#contact" class="hero-btn">Get Started</a>
-    </header>
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-container">
-            <h2 class="section-title">About RORA</h2>
-            <p class="section-subtitle">Excellence in Every Venture</p>
-            <p class="about-intro-text">RORA operates as <strong>RORA Innovative Ventures Limited</strong> and <strong>Royal Rebirth Art</strong>. Our commitment is to deliver quality services that meet client needs with professionalism and integrity.</p>
-            <div class="about-content">
-                <div class="about-card">
-                    <div class="about-icon">🎯</div>
-                    <h3>Our Mission</h3>
-                    <p>To provide innovative solutions across diverse sectors while maintaining high standards.</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-icon">👁️</div>
-                    <h3>Our Vision</h3>
-                    <p>To be the leading multi-sector enterprise recognized for excellence.</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-icon">💎</div>
-                    <h3>Our Values</h3>
-                    <p>Integrity, quality, professionalism, and innovation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="services-container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🌾</div>
-                    <h3>Agriculture</h3>
-                    <p>Professional livestock management and agricultural consultancy.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏗️</div>
-                    <h3>Contracts & Supplies</h3>
-                    <p>General contracting and quality merchandise solutions.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🗺️</div>
-                    <h3>Tourism</h3>
-                    <p>Unforgettable travel experiences and safari adventures.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>Arts & Design</h3>
-                    <p>Creative interior, exterior, and custom furniture design.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏘️</div>
-                    <h3>Real Estate</h3>
-                    <p>Property management, sales, and investment consultancy.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛒</div>
-                    <h3>Retailing</h3>
-                    <p>Quality retail solutions through our specialized Mart.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        /* Navigation */
+        .navbar {
+            background: #1a1a2e;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    <!-- Why Choose Us -->
-    <section class="why-choose">
-        <div class="why-choose-container">
-            <h2 class="section-title text-white">Why Choose RORA</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">✓</div>
-                    <h3>Professional Excellence</h3>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Quality Assurance</h3>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Client-Centered</h3>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Integrity & Trust</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-    <!-- Gallery Preview -->
-    <section class="gallery" id="gallery">
-        <div class="gallery-container">
-            <h2 class="section-title">Our Work</h2>
-            <div class="gallery-grid" id="galleryGrid"></div>
-            <a href="#gallery" class="view-gallery-btn">View Full Gallery</a>
-        </div>
-    </section>
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-    <!-- Call to Action -->
-    <section class="cta">
-        <h2 id="cta-title">Ready to Work with Us?</h2>
-        <div class="cta-buttons">
-            <a href="#contact" class="cta-btn cta-btn-primary">Contact Us</a> 
-            <a href="#" class="cta-btn cta-btn-secondary" id="ctaWhatsappBtn">📱 WhatsApp Now</a>
-        </div>
-    </section>
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="contact-container">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div><p id="phone-number">+1 234 567 8900</p></div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div><p id="email-address">info@rora.com</p></div>
-                    </div>
-                </div>
-                <div class="contact-info">
-                    <h3>Business Hours</h3>
-                    <p>Mon - Fri: 8:00 AM - 6:00 PM</p>
-                    <p>Sat: 9:00 AM - 4:00 PM</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d4af37;
+            letter-spacing: 3px;
+        }
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>RORA</h3>
-                <p>Innovative Ventures & Royal Rebirth Art</p>
-            </div>
-            <div class="footer-section">
-                <h3>Connect With Us</h3>
-                <div class="social-icons" id="socialIcons"></div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2024 RORA Innovative Ventures Limited. All rights reserved.</p>
-        </div>
-    </footer>
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
 
-    <!-- Link to the JS file -->
-    <script src="script.js"></script>
-    <script src="/_sdk/8650958800d6c92a.element_sdk.js"></script>
-</body>
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #d4af37;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+            border: none;
+            cursor: pointer;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1fb855;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 8rem 5% 6rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            background: #d4af37;
+            color: #1a1a2e;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: #c29d2f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            background: #f8f9fa;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            color: #1a1a2e;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 5rem 5%;
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .why-choose-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+
+        /* Gallery Preview */
+        .gallery {
+            padding: 5rem 5%;
+            background: #f8f9fa;
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #e9ecef;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 3rem;
+        }
+
+        .gallery-item:nth-child(2) .gallery-placeholder {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .gallery-item:nth-child(3) .gallery-placeholder {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .gallery-item:nth-child(4) .gallery-placeholder {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .gallery-item:nth-child(5) .gallery-placeholder {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .gallery-item:nth-child(6) .gallery-placeholder {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        }
+
+        .view-gallery-btn {
+            display: block;
+            width: fit-content;
+            margin: 3rem auto 0;
+            background: #1a1a2e;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .view-gallery-btn:hover {
+            background: #d4af37;
+            color: #1a1a2e;
+            transform: translateY(-3px);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #d4af37 0%, #c29d2f 100%);
+            color: #1a1a2e;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .cta-btn-primary {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .cta-btn-primary:hover {
+            background: #16213e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 26, 46, 0.3);
+        }
+
+        .cta-btn-secondary {
+            background: white;
+            color: #1a1a2e;
+        }
+
+        .cta-btn-secondary:hover {
+            background: #f8f9fa;
+            transform: translateY(-3px);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: #d4af37;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 3rem 5% 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: #d4af37;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: #16213e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .social-icon:hover {
+            background: #d4af37;
+            color: #1a1a2e;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #16213e;
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #1a1a2e;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            .logo-text {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/0179d719c431a79e.data_sdk.js" type="text/javascript" integrity="sha512-OsRvJkI5GkC3MJQcgotQYotpzrMSX415GiKKgvYdxQEEkzD/fdchShO2FMSy0PJr/tiINMXOk5Vl2zAgg6bUiA=="></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+ </head>
+ <body>
+  <!-- Navigation -->
+  <nav class="navbar">
+   <div class="nav-container">
+    <div class="logo">
+     <img id="logoImg" class="logo-img" src="" alt="RORA Logo" onerror="this.style.display='none';" style="display:none;">
+     <div class="logo-text" id="company-name">
+      RORA
+     </div>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+     <li><a href="#home">Home</a></li>
+     <li><a href="#about">About</a></li>
+     <li><a href="#services">Services</a></li>
+     <li><a href="#gallery">Gallery</a></li>
+     <li><a href="#contact">Contact</a></li>
+     <li><a href="#" class="whatsapp-btn" id="whatsappBtn">📱 WhatsApp</a></li>
+    </ul><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+   </div>
+  </nav><!-- Hero Section -->
+  <header class="hero" id="home">
+   <h1 id="tagline">Innovation Meets Excellence</h1>
+   <p id="hero-description">Your trusted partner in Agriculture, Construction, Tourism, Arts &amp; Design, Real Estate, and Retail. Delivering quality services with professionalism and integrity.</p><a href="#contact" class="hero-btn">Get Started</a>
+  </header><!-- About Section -->
+  <section class="about" id="about">
+   <div class="about-container">
+    <h2 class="section-title">About RORA</h2>
+    <p class="section-subtitle">Excellence in Every Venture</p>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; color: #555;">RORA operates as <strong>RORA Innovative Ventures Limited</strong> and <strong>Royal Rebirth Art</strong> under the brand name RORA. Our areas of operation span multiple sectors, including investments, general contracts, supplies, merchandising, and creative services. Our commitment is to deliver quality services that meet client needs with professionalism and integrity.</p>
+    <div class="about-content">
+     <div class="about-card">
+      <div class="about-icon">
+       🎯
+      </div>
+      <h3>Our Mission</h3>
+      <p>To provide innovative solutions across diverse sectors while maintaining the highest standards of quality and professionalism.</p>
+     </div>
+     <div class="about-card">
+      <div class="about-icon">
+       👁️
+      </div>
+      <h3>Our Vision</h3>
+      <p>To be the leading multi-sector enterprise recognized for excellence, innovation, and customer satisfaction.</p>
+     </div>
+     <div class="about-card">
+      <div class="about-icon">
+       💎
+      </div>
+      <h3>Our Values</h3>
+      <p>Integrity, quality, professionalism, innovation, and unwavering commitment to client satisfaction.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Services Section -->
+  <section class="services" id="services">
+   <div class="services-container">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-subtitle">Comprehensive Solutions Across Multiple Sectors</p>
+    <div class="services-grid">
+     <div class="service-card">
+      <div class="service-icon">
+       🌾
+      </div>
+      <h3>Agriculture (Livestock)</h3>
+      <p>Professional livestock management, breeding programs, and agricultural consultancy services for sustainable farming operations.</p>
+     </div>
+     <div class="service-card">
+      <div class="service-icon">
+       🏗️
+      </div>
+      <h3>Contracts, Supplies &amp; Merchandise</h3>
+      <p>General contracting services, quality supplies, and merchandise solutions tailored to your business needs.</p>
+     </div>
+     <div class="service-card">
+      <div class="service-icon">
+       🗺️
+      </div>
+      <h3>Tourism (Trips, Safari &amp; Adventure)</h3>
+      <p>Unforgettable travel experiences, safari adventures, and curated tourism packages for explorers and adventurers.</p>
+     </div>
+     <div class="service-card">
+      <div class="service-icon">
+       🎨
+      </div>
+      <h3>Arts, Interior &amp; Exterior Design</h3>
+      <p>Creative design solutions including arts, interior design, exterior design, decorations, and custom furniture through Royal Rebirth Art.</p>
+     </div>
+     <div class="service-card">
+      <div class="service-icon">
+       🏘️
+      </div>
+      <h3>Real Estate &amp; Properties</h3>
+      <p>Comprehensive real estate services including property management, sales, acquisitions, and investment consultancy.</p>
+     </div>
+     <div class="service-card">
+      <div class="service-icon">
+       🛒
+      </div>
+      <h3>Retailing (Mart)</h3>
+      <p>Quality retail solutions providing a wide range of products and merchandise to meet everyday needs.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Why Choose Us -->
+  <section class="why-choose">
+   <div class="why-choose-container">
+    <h2 class="section-title" style="color: white;">Why Choose RORA</h2>
+    <p class="section-subtitle" style="color: #ccc;">Your Success is Our Priority</p>
+    <div class="features-grid">
+     <div class="feature-item">
+      <div class="feature-icon">
+       ✓
+      </div>
+      <h3>Professional Excellence</h3>
+      <p>Decades of combined experience delivering outstanding results across all sectors.</p>
+     </div>
+     <div class="feature-item">
+      <div class="feature-icon">
+       ⚡
+      </div>
+      <h3>Quality Assurance</h3>
+      <p>Rigorous quality standards ensuring every project exceeds expectations.</p>
+     </div>
+     <div class="feature-item">
+      <div class="feature-icon">
+       🤝
+      </div>
+      <h3>Client-Centered Approach</h3>
+      <p>Your needs drive our solutions. We listen, adapt, and deliver.</p>
+     </div>
+     <div class="feature-item">
+      <div class="feature-icon">
+       🔒
+      </div>
+      <h3>Integrity &amp; Trust</h3>
+      <p>Built on honesty, transparency, and ethical business practices.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Gallery Preview -->
+  <section class="gallery" id="gallery">
+   <div class="gallery-container">
+    <h2 class="section-title">Our Work</h2>
+    <p class="section-subtitle">A Glimpse of Excellence</p>
+    <div class="gallery-grid" id="galleryGrid">
+     <!-- Gallery items will be populated by JavaScript -->
+    </div><a href="#gallery" class="view-gallery-btn">View Full Gallery</a>
+   </div>
+  </section><!-- Call to Action -->
+  <section class="cta">
+   <h2 id="cta-title">Ready to Work with Us?</h2>
+   <p id="cta-description">Let's talk about your next project</p>
+   <div class="cta-buttons">
+    <a href="#contact" class="cta-btn cta-btn-primary">Contact Us</a> <a href="#" class="cta-btn cta-btn-secondary" id="ctaWhatsappBtn">📱 WhatsApp Now</a>
+   </div>
+  </section><!-- Contact Section -->
+  <section class="contact" id="contact">
+   <div class="contact-container">
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="section-subtitle">We're Here to Help</p>
+    <div class="contact-grid">
+     <div class="contact-info">
+      <h3 style="color: #1a1a2e; margin-bottom: 1.5rem;">Contact Information</h3>
+      <div class="contact-item">
+       <div class="contact-icon">
+        📞
+       </div>
+       <div>
+        <strong>Phone</strong>
+        <p id="phone-number">+1 234 567 8900</p>
+       </div>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        ✉️
+       </div>
+       <div>
+        <strong>Email</strong>
+        <p id="email-address">info@rora.com</p>
+       </div>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        📱
+       </div>
+       <div>
+        <strong>WhatsApp</strong>
+        <p id="whatsapp-display">Available 24/7</p>
+       </div>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        📍
+       </div>
+       <div>
+        <strong>Location</strong>
+        <p>Serving clients nationwide</p>
+       </div>
+      </div>
+     </div>
+     <div class="contact-info">
+      <h3 style="color: #1a1a2e; margin-bottom: 1.5rem;">Business Hours</h3>
+      <p style="margin-bottom: 1rem;"><strong>Monday - Friday:</strong> 8:00 AM - 6:00 PM</p>
+      <p style="margin-bottom: 1rem;"><strong>Saturday:</strong> 9:00 AM - 4:00 PM</p>
+      <p style="margin-bottom: 2rem;"><strong>Sunday:</strong> Closed</p>
+      <p style="color: #d4af37; font-weight: 600;">Emergency services available upon request</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer class="footer">
+   <div class="footer-container">
+    <div class="footer-section">
+     <h3>RORA</h3>
+     <p>RORA Innovative Ventures Limited</p>
+     <p>Royal Rebirth Art</p>
+     <p style="margin-top: 1rem;">Excellence in Agriculture, Construction, Tourism, Design, Real Estate &amp; Retail.</p>
+    </div>
+    <div class="footer-section">
+     <h3>Quick Links</h3><a href="#home">Home</a> <a href="#about">About Us</a> <a href="#services">Services</a> <a href="#gallery">Gallery</a> <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-section">
+     <h3>Our Services</h3><a href="#services">Agriculture</a> <a href="#services">Contracts &amp; Supplies</a> <a href="#services">Tourism</a> <a href="#services">Arts &amp; Design</a> <a href="#services">Real Estate</a> <a href="#services">Retailing</a>
+    </div>
+    <div class="footer-section">
+     <h3>Connect With Us</h3>
+     <p id="footer-phone">Phone: +1 234 567 8900</p>
+     <p id="footer-email">Email: info@rora.com</p>
+     <div class="social-icons" id="socialIcons">
+      <!-- Social icons will be populated by JavaScript -->
+     </div>
+    </div>
+   </div>
+   <div class="footer-bottom">
+    <p>© 2024 RORA Innovative Ventures Limited &amp; Royal Rebirth Art. All rights reserved.</p>
+   </div>
+  </footer>
+  <script src="/_sdk/8650958800d6c92a.element_sdk.js" integrity="sha512-zFMhEG5W24TdVhhc4yw+K4kKrl6mClLz7Nz7OlZcKY64bZTx26LpVI6mwMCarQMzfrHe8i4fBMu4fxoFej2m9g=="></script>
+  <script>
+        const defaultConfig = {
+            company_name: "RORA",
+            logo_url: "https://imgur.com/a/QCmitCy",
+            tagline: "Innovation Meets Excellence",
+            hero_description: "Your trusted partner in Agriculture, Construction, Tourism, Arts & Design, Real Estate, and Retail. Delivering quality services with professionalism and integrity.",
+            gallery_image_1: "",
+            gallery_image_2: "",
+            gallery_image_3: "",
+            gallery_image_4: "",
+            gallery_image_5: "",
+            gallery_image_6: "",
+            cta_title: "Ready to Work with Us?",
+            cta_description: "Let's talk about your next project",
+            phone_number: "+234806042370",
+            email_address: "info@rora.com",
+            whatsapp_number: "+234806042370",
+            facebook_url: "https://www.facebook.com/royalrebirth.art",
+            instagram_url: "",
+            linkedin_url: "",
+            twitter_url: "",
+            background_color: "#f8f9fa",
+            primary_color: "#1a1a2e",
+            accent_color: "#d4af37",
+            text_color: "#333333",
+            button_color: "#25D366",
+            font_family: "Segoe UI",
+            font_size: 16
+        };
+
+        async function onConfigChange(config) {
+            const companyName = config.company_name || defaultConfig.company_name;
+            const logoUrl = config.logo_url || defaultConfig.logo_url;
+            const tagline = config.tagline || defaultConfig.tagline;
+            const heroDescription = config.hero_description || defaultConfig.hero_description;
+            const ctaTitle = config.cta_title || defaultConfig.cta_title;
+            const ctaDescription = config.cta_description || defaultConfig.cta_description;
+            const phoneNumber = config.phone_number || defaultConfig.phone_number;
+            const emailAddress = config.email_address || defaultConfig.email_address;
+            const whatsappNumber = config.whatsapp_number || defaultConfig.whatsapp_number;
+            const facebookUrl = config.facebook_url || defaultConfig.facebook_url;
+            const instagramUrl = config.instagram_url || defaultConfig.instagram_url;
+            const linkedinUrl = config.linkedin_url || defaultConfig.linkedin_url;
+            const twitterUrl = config.twitter_url || defaultConfig.twitter_url;
+            
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const primaryColor = config.primary_color || defaultConfig.primary_color;
+            const accentColor = config.accent_color || defaultConfig.accent_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const buttonColor = config.button_color || defaultConfig.button_color;
+            
+            const customFont = config.font_family || defaultConfig.font_family;
+            const baseSize = config.font_size || defaultConfig.font_size;
+            const baseFontStack = 'Tahoma, Geneva, Verdana, sans-serif';
+
+            // Update logo
+            const logoImg = document.getElementById('logoImg');
+            if (logoUrl) {
+                logoImg.src = logoUrl;
+                logoImg.style.display = 'block';
+            } else {
+                logoImg.style.display = 'none';
+            }
+
+            // Update text content
+            document.getElementById('company-name').textContent = companyName;
+            document.getElementById('tagline').textContent = tagline;
+            document.getElementById('hero-description').textContent = heroDescription;
+            document.getElementById('cta-title').textContent = ctaTitle;
+            document.getElementById('cta-description').textContent = ctaDescription;
+            document.getElementById('phone-number').textContent = phoneNumber;
+            document.getElementById('email-address').textContent = emailAddress;
+            document.getElementById('footer-phone').textContent = `Phone: ${phoneNumber}`;
+            document.getElementById('footer-email').textContent = `Email: ${emailAddress}`;
+
+            // Update gallery
+            updateGallery(config);
+
+            // Update social icons
+            updateSocialIcons(facebookUrl, instagramUrl, linkedinUrl, twitterUrl);
+
+            // Update colors
+            document.querySelectorAll('.navbar').forEach(el => el.style.background = primaryColor);
+            document.querySelectorAll('.hero').forEach(el => el.style.background = `linear-gradient(135deg, ${primaryColor} 0%, #16213e 100%)`);
+            document.querySelectorAll('.footer').forEach(el => el.style.background = primaryColor);
+            document.querySelectorAll('.why-choose').forEach(el => el.style.background = primaryColor);
+            document.querySelectorAll('.about, .gallery').forEach(el => el.style.background = backgroundColor);
+            document.querySelectorAll('.logo-text').forEach(el => el.style.color = accentColor);
+            document.querySelectorAll('.hero h1').forEach(el => el.style.color = accentColor);
+            document.querySelectorAll('.section-title').forEach(el => el.style.color = primaryColor);
+            document.querySelectorAll('.about-card h3, .service-card h3').forEach(el => el.style.color = primaryColor);
+            document.querySelectorAll('.hero-btn').forEach(el => {
+                el.style.background = accentColor;
+                el.style.color = primaryColor;
+            });
+            document.querySelectorAll('.whatsapp-btn').forEach(el => el.style.background = buttonColor);
+            document.querySelectorAll('.feature-icon, .feature-item h3').forEach(el => el.style.color = accentColor);
+            document.querySelectorAll('.contact-icon').forEach(el => el.style.color = accentColor);
+            document.body.style.color = textColor;
+
+            // Update fonts
+            document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            document.querySelectorAll('.hero h1').forEach(el => el.style.fontSize = `${baseSize * 2.2}px`);
+            document.querySelectorAll('.hero p').forEach(el => el.style.fontSize = `${baseSize * 1.1}px`);
+            document.querySelectorAll('.section-title').forEach(el => el.style.fontSize = `${baseSize * 1.8}px`);
+            document.querySelectorAll('.section-subtitle').forEach(el => el.style.fontSize = `${baseSize * 1}px`);
+            document.querySelectorAll('h3').forEach(el => el.style.fontSize = `${baseSize * 1.3}px`);
+            document.body.style.fontSize = `${baseSize}px`;
+
+            // Update WhatsApp links
+            if (whatsappNumber) {
+                const cleanNumber = whatsappNumber.replace(/[^0-9]/g, '');
+                const whatsappUrl = `https://wa.me/${cleanNumber}`;
+                document.getElementById('whatsappBtn').href = whatsappUrl;
+                document.getElementById('ctaWhatsappBtn').href = whatsappUrl;
+            }
+        }
+
+        function updateGallery(config) {
+            const galleryGrid = document.getElementById('galleryGrid');
+            galleryGrid.innerHTML = '';
+
+            const galleryImages = [
+                config.gallery_image_1 || defaultConfig.gallery_image_1,
+                config.gallery_image_2 || defaultConfig.gallery_image_2,
+                config.gallery_image_3 || defaultConfig.gallery_image_3,
+                config.gallery_image_4 || defaultConfig.gallery_image_4,
+                config.gallery_image_5 || defaultConfig.gallery_image_5,
+                config.gallery_image_6 || defaultConfig.gallery_image_6
+            ];
+
+            const placeholderIcons = ['🌾', '🏗️', '🗺️', '🎨', '🏘️', '🛒'];
+
+            galleryImages.forEach((imageUrl, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+
+                if (imageUrl) {
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    img.alt = `Gallery Image ${index + 1}`;
+                    img.onerror = function() {
+                        this.style.display = 'none';
+                        const placeholder = document.createElement('div');
+                        placeholder.className = 'gallery-placeholder';
+                        placeholder.textContent = placeholderIcons[index];
+                        galleryItem.appendChild(placeholder);
+                    };
+                    galleryItem.appendChild(img);
+                } else {
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'gallery-placeholder';
+                    placeholder.textContent = placeholderIcons[index];
+                    galleryItem.appendChild(placeholder);
+                }
+
+                galleryGrid.appendChild(galleryItem);
+            });
+        }
+
+        function updateSocialIcons(facebook, instagram, linkedin, twitter) {
+            const socialContainer = document.getElementById('socialIcons');
+            socialContainer.innerHTML = '';
+
+            const socialLinks = [
+                { url: facebook, icon: 'f', label: 'Facebook', class: 'facebook' },
+                { url: instagram, icon: '📷', label: 'Instagram', class: 'instagram' },
+                { url: linkedin, icon: 'in', label: 'LinkedIn', class: 'linkedin' },
+                { url: twitter, icon: '𝕏', label: 'Twitter', class: 'twitter' }
+            ];
+
+            socialLinks.forEach(social => {
+                if (social.url) {
+                    const link = document.createElement('a');
+                    link.href = social.url;
+                    link.className = `social-icon ${social.class}`;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.setAttribute('aria-label', social.label);
+                    link.textContent = social.icon;
+                    socialContainer.appendChild(link);
+                }
+            });
+
+            // Show default icons if no URLs provided
+            if (!facebook && !instagram && !linkedin && !twitter) {
+                socialLinks.forEach(social => {
+                    const link = document.createElement('a');
+                    link.href = '#';
+                    link.className = `social-icon ${social.class}`;
+                    link.setAttribute('aria-label', social.label);
+                    link.textContent = social.icon;
+                    socialContainer.appendChild(link);
+                });
+            }
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            config.background_color = value;
+                            window.elementSdk.setConfig({ background_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            config.primary_color = value;
+                            window.elementSdk.setConfig({ primary_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            config.text_color = value;
+                            window.elementSdk.setConfig({ text_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.accent_color || defaultConfig.accent_color,
+                        set: (value) => {
+                            config.accent_color = value;
+                            window.elementSdk.setConfig({ accent_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.button_color || defaultConfig.button_color,
+                        set: (value) => {
+                            config.button_color = value;
+                            window.elementSdk.setConfig({ button_color: value });
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        config.font_family = value;
+                        window.elementSdk.setConfig({ font_family: value });
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        config.font_size = value;
+                        window.elementSdk.setConfig({ font_size: value });
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["company_name", config.company_name || defaultConfig.company_name],
+                ["logo_url", config.logo_url || defaultConfig.logo_url],
+                ["tagline", config.tagline || defaultConfig.tagline],
+                ["hero_description", config.hero_description || defaultConfig.hero_description],
+                ["gallery_image_1", config.gallery_image_1 || defaultConfig.gallery_image_1],
+                ["gallery_image_2", config.gallery_image_2 || defaultConfig.gallery_image_2],
+                ["gallery_image_3", config.gallery_image_3 || defaultConfig.gallery_image_3],
+                ["gallery_image_4", config.gallery_image_4 || defaultConfig.gallery_image_4],
+                ["gallery_image_5", config.gallery_image_5 || defaultConfig.gallery_image_5],
+                ["gallery_image_6", config.gallery_image_6 || defaultConfig.gallery_image_6],
+                ["cta_title", config.cta_title || defaultConfig.cta_title],
+                ["cta_description", config.cta_description || defaultConfig.cta_description],
+                ["phone_number", config.phone_number || defaultConfig.phone_number],
+                ["email_address", config.email_address || defaultConfig.email_address],
+                ["whatsapp_number", config.whatsapp_number || defaultConfig.whatsapp_number],
+                ["facebook_url", config.facebook_url || defaultConfig.facebook_url],
+                ["instagram_url", config.instagram_url || defaultConfig.instagram_url],
+                ["linkedin_url", config.linkedin_url || defaultConfig.linkedin_url],
+                ["twitter_url", config.twitter_url || defaultConfig.twitter_url]
+            ]);
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Initialize SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a17ee250d6236346',t:'MTc4MzUxMTU1OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
