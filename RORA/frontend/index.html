@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RORA — Innovative Ventures & Royal Rebirth Art</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --sky:        #5BB8E8;
+      --sky-light:  #A8D9F5;
+      --sky-deep:   #2E86C1;
+      --gold:       #C9A84C;
+      --ink:        #0C1524;
+      --ink2:       #1A2840;
+      --white:      #FFFFFF;
+      --warm:       #F4F8FC;
+      --border:     #D6E8F5;
+      --muted:      #5E7A94;
+      --serif:      'Playfair Display', Georgia, serif;
+      --sans:       'Inter', system-ui, sans-serif;
+      --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--warm); }
+    ::-webkit-scrollbar-thumb { background: var(--sky); border-radius: 3px; }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+      padding: 0 5%;
+    }
+
+    .nav.scrolled {
+      background: rgba(12, 21, 36, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(91,184,232,0.15);
+    }
+
+    .nav__inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav__logo img { height: 38px; width: auto; object-fit: contain; }
+
+    .nav__wordmark {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--sky-light);
+      letter-spacing: 4px;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav__links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--sky);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s var(--ease-out);
+    }
+
+    .nav__links a:hover { color: var(--white); }
+    .nav__links a:hover::after { transform: scaleX(1); }
+
+    .nav__cta {
+      background: var(--sky);
+      color: var(--ink) !important;
+      font-weight: 600 !important;
+      padding: 9px 22px;
+      border-radius: 8px;
+      transition: all 0.2s !important;
+    }
+
+    .nav__cta::after { display: none !important; }
+
+    .nav__cta:hover {
+      background: var(--sky-light) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(91,184,232,0.35);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.25s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--ink);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Animated gradient orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.18;
+      animation: orb-drift 12s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 600px; height: 600px;
+      background: var(--sky-deep);
+      top: -200px; right: -100px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 400px; height: 400px;
+      background: var(--sky);
+      bottom: -100px; left: -50px;
+      animation-delay: -4s;
+    }
+
+    .orb-3 {
+      width: 300px; height: 300px;
+      background: var(--gold);
+      top: 40%; left: 40%;
+      animation-delay: -8s;
+      opacity: 0.08;
+    }
+
+    @keyframes orb-drift {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%      { transform: translate(30px,-20px) scale(1.05); }
+      66%      { transform: translate(-15px,25px) scale(0.97); }
+    }
+
+    /* Grid lines background */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(91,184,232,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(91,184,232,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 140px 5% 100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(91,184,232,0.1);
+      border: 1px solid rgba(91,184,232,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--sky-light);
+      letter-spacing: 0.06em;
+      margin-bottom: 1.75rem;
+      text-transform: uppercase;
+    }
+
+    .hero__badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--sky);
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero__headline {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__headline .accent {
+      color: transparent;
+      background: linear-gradient(135deg, var(--sky) 0%, var(--sky-light) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .hero__body {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.6);
+      max-width: 48ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: 9px;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s var(--ease-out);
+      cursor: pointer;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn--sky {
+      background: var(--sky);
+      color: var(--ink);
+    }
+
+    .btn--sky:hover {
+      background: var(--sky-light);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(91,184,232,0.35);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn--outline:hover {
+      border-color: var(--sky);
+      color: var(--sky-light);
+      background: rgba(91,184,232,0.05);
+    }
+
+    .btn--wa {
+      background: #25D366;
+      color: var(--white);
+    }
+
+    .btn--wa:hover {
+      background: #1fb855;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(37,211,102,0.3);
+    }
+
+    .btn--dark {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .btn--dark:hover {
+      background: var(--ink2);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(12,21,36,0.3);
+    }
+
+    .btn--white {
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .btn--white:hover { background: var(--warm); transform: translateY(-2px); }
+
+    .hero__stats {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .stat__num {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--sky-light);
+      line-height: 1;
+    }
+
+    .stat__label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 4px;
+    }
+
+    /* Hero visual panel */
+    .hero__visual {
+      position: relative;
+    }
+
+    .hero__card-stack {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      margin-left: auto;
+    }
+
+    .hcard {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(91,184,232,0.2);
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .hcard--main {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hcard--back {
+      position: absolute;
+      top: -16px; left: 16px; right: -16px;
+      z-index: 1;
+      opacity: 0.5;
+    }
+
+    .hcard__label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--sky);
+      margin-bottom: 0.875rem;
+    }
+
+    .hcard__title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+
+    .hcard__services {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hcard__svc {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hcard__svc-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--sky);
+      flex-shrink: 0;
+    }
+
+    .hcard__svc-name {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .hcard__svc-bar {
+      flex: 1;
+      height: 3px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .hcard__svc-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--sky-deep), var(--sky));
+      border-radius: 2px;
+      animation: bar-grow 1.5s var(--ease-out) forwards;
+      transform-origin: left;
+    }
+
+    @keyframes bar-grow {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    /* ── SECTION SHARED ── */
+    .section {
+      padding: 7rem 5%;
+    }
+
+    .container { max-width: 1240px; margin: 0 auto; }
+
+    .sh { margin-bottom: 3.5rem; }
+    .sh--center { text-align: center; }
+
+    .sh__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--sky-deep);
+      margin-bottom: 0.875rem;
+    }
+
+    .sh__label::before {
+      content: '';
+      display: block;
+      width: 20px; height: 2px;
+      background: var(--sky);
+    }
+
+    .sh__title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .sh__sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 56ch;
+      line-height: 1.75;
+    }
+
+    .sh--center .sh__sub { margin: 0 auto; }
+    .sh--center .sh__label { justify-content: center; }
+
+    /* ── ABOUT ── */
+    .about { background: var(--warm); }
+
+    .about__lead {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: #3A5068;
+      max-width: 68ch;
+      margin: 0 auto 4rem;
+      text-align: center;
+    }
+
+    .about__lead strong { color: var(--ink); }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .pillar {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+    }
+
+    .pillar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--sky-deep), var(--sky));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-out);
+    }
+
+    .pillar:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(46,134,193,0.12);
+    }
+
+    .pillar:hover::before { transform: scaleX(1); }
+
+    .pillar__icon-wrap {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: rgba(91,184,232,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: background 0.3s;
+    }
+
+    .pillar:hover .pillar__icon-wrap {
+      background: rgba(91,184,232,0.18);
+    }
+
+    .pillar__title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.875rem;
+    }
+
+    .pillar__text {
+      font-size: 0.925rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--white); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .svc {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.25rem 1.875rem;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-out);
+      background: var(--white);
+    }
+
+    .svc::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(91,184,232,0.04) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .svc:hover {
+      border-color: var(--sky);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(46,134,193,0.1);
+    }
+
+    .svc:hover::after { opacity: 1; }
+
+    .svc__icon {
+      font-size: 2.2rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .svc__title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .svc__text {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .svc__arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 1.25rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--sky-deep);
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: all 0.3s var(--ease-out);
+    }
+
+    .svc:hover .svc__arrow { opacity: 1; transform: translateX(0); }
+
+    /* ── WHY US ── */
+    .why { background: var(--ink); position: relative; overflow: hidden; }
+
+    .why::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(91,184,232,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(91,184,232,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .why .sh__title { color: var(--white); }
+    .why .sh__sub { color: rgba(255,255,255,0.45); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(91,184,232,0.1);
+      border: 1px solid rgba(91,184,232,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .why-item {
+      background: rgba(255,255,255,0.02);
+      padding: 2.5rem 1.875rem;
+      transition: background 0.3s;
+      position: relative;
+    }
+
+    .why-item:hover { background: rgba(91,184,232,0.06); }
+
+    .why-item__icon {
+      font-size: 1.6rem;
+      color: var(--sky);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .why-item__title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .why-item__text {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.8;
+    }
+
+    /* ── GALLERY ── */
+    .gallery { background: var(--warm); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 240px;
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item:nth-child(1) { grid-column: span 7; grid-row: span 2; }
+    .gallery-item:nth-child(2) { grid-column: span 5; }
+    .gallery-item:nth-child(3) { grid-column: span 5; }
+    .gallery-item:nth-child(4) { grid-column: span 4; }
+    .gallery-item:nth-child(5) { grid-column: span 4; }
+    .gallery-item:nth-child(6) { grid-column: span 4; }
+
+    .gph {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      position: relative;
+      transition: transform 0.5s var(--ease-out);
+    }
+
+    .gallery-item:hover .gph { transform: scale(1.06); }
+
+    .gph-1 { background: linear-gradient(135deg, #0C3A5C 0%, #1A6B99 100%); }
+    .gph-2 { background: linear-gradient(135deg, #1A3A1A 0%, #2E6E2E 100%); }
+    .gph-3 { background: linear-gradient(135deg, #3A1A00 0%, #8C5200 100%); }
+    .gph-4 { background: linear-gradient(135deg, #1A1A3A 0%, #3A2E8C 100%); }
+    .gph-5 { background: linear-gradient(135deg, #2E0A0A 0%, #8C1A1A 100%); }
+    .gph-6 { background: linear-gradient(135deg, #0A2E2E 0%, #1A6E6E 100%); }
+
+    .gallery-item__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+    }
+
+    .gallery-item:hover .gallery-item__overlay { opacity: 1; }
+
+    .gallery-item__label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.03em;
+    }
+
+    .gallery-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 2.5rem;
+    }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--sky-deep) 0%, var(--sky) 100%);
+      padding: 6rem 5%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .cta-band__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta-band__title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .cta-band__sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 2.25rem;
+      line-height: 1.65;
+    }
+
+    .cta-band__actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--white); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .cblock {
+      background: var(--warm);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+
+    .cblock__title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.125rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .crow {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .crow__icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(91,184,232,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .crow__label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .crow__value {
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+
+    .crow__value a {
+      color: var(--sky-deep);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .crow__value a:hover { color: var(--sky); }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .hours-row:last-of-type { border-bottom: none; }
+    .hours-row__day { color: var(--muted); }
+    .hours-row__time { font-weight: 500; color: var(--ink); }
+    .hours-row__closed { color: #E05A5A; font-weight: 500; }
+    .hours-note { margin-top: 1.25rem; font-size: 0.82rem; color: var(--sky-deep); font-weight: 600; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--ink);
+      padding: 4.5rem 5% 2rem;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .footer__name {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--sky-light);
+      letter-spacing: 3px;
+      margin-bottom: 0.875rem;
+    }
+
+    .footer__desc {
+      font-size: 0.875rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.35);
+      max-width: 30ch;
+    }
+
+    .footer__col-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer__links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .footer__links a {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer__links a:hover { color: var(--sky-light); }
+
+    .footer__citem {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.875rem;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.35);
+      align-items: flex-start;
+    }
+
+    .footer__citem a {
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer__citem a:hover { color: var(--sky-light); }
+
+    .socials { display: flex; gap: 8px; margin-top: 1.5rem; }
+
+    .soc {
+      width: 38px; height: 38px;
+      border-radius: 9px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .soc:hover {
+      background: var(--sky);
+      border-color: var(--sky);
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    .footer__hr {
+      max-width: 1240px;
+      margin: 3rem auto 1.75rem;
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .footer__bottom {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ── ANIMATIONS (scroll reveal) ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .nav__links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 72px; left: 0; right: 0;
+        background: rgba(12,21,36,0.97);
+        backdrop-filter: blur(20px);
+        padding: 2rem 5%;
+        gap: 1.25rem;
+        border-top: 1px solid rgba(91,184,232,0.15);
+        z-index: 199;
+      }
+      .hamburger { display: flex; }
+
+      .hero__inner { grid-template-columns: 1fr; padding: 120px 5% 80px; gap: 3rem; }
+      .hero__visual { display: none; }
+      .hero__stats { gap: 1.75rem; }
+
+      .pillars { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 180px;
+      }
+      .gallery-item:nth-child(1),
+      .gallery-item:nth-child(2),
+      .gallery-item:nth-child(3),
+      .gallery-item:nth-child(4),
+      .gallery-item:nth-child(5),
+      .gallery-item:nth-child(6) {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer__bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .cta-band__actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__logo">
+      <img src="https://i.imgur.com/m6jvFUQ.png" alt="RORA logo"/>
+      <span class="nav__wordmark">RORA</span>
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="https://wa.me/234806042370" class="nav__cta" target="_blank" rel="noopener">
+          WhatsApp
+        </a>
+      </li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero__inner">
+    <div>
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        RORA Innovative Ventures &amp; Royal Rebirth Art
+      </div>
+      <h1 class="hero__headline">
+        Where <span class="accent">Innovation</span><br>Meets Excellence
+      </h1>
+      <p class="hero__body">
+        Your trusted partner across Agriculture, Construction, Tourism,
+        Arts &amp; Design, Real Estate, and Retail — delivering quality
+        with professionalism and integrity.
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--sky">Start a Project</a>
+        <a href="https://wa.me/234806042370" class="btn btn--outline" target="_blank" rel="noopener">
+          📱 WhatsApp
+        </a>
+      </div>
+      <div class="hero__stats">
+        <div>
+          <div class="stat__num">6+</div>
+          <div class="stat__label">Sectors served</div>
+        </div>
+        <div>
+          <div class="stat__num">2</div>
+          <div class="stat__label">Registered entities</div>
+        </div>
+        <div>
+          <div class="stat__num">24/7</div>
+          <div class="stat__label">WhatsApp support</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <div class="hero__card-stack">
+        <div class="hcard hcard--back" aria-hidden="true">
+          <div class="hcard__label">Royal Rebirth Art</div>
+          <div class="hcard__title">Creative &amp; Design Wing</div>
+        </div>
+        <div class="hcard hcard--main">
+          <div class="hcard__label">Our sectors</div>
+          <div class="hcard__title">RORA Innovative Ventures</div>
+          <div class="hcard__services">
+            <div class="hcard__svc">
+              <span class="hcard__svc-dot"></span>
+              <span class="hcard__svc-name">Agriculture</span>
+              <div class="hcard__svc-bar"><div class="hcard__svc-fill" style="width:85%"></div></div>
+            </div>
+            <div class="hcard__svc">
+              <span class="hcard__svc-dot"></span>
+              <span class="hcard__svc-name">Real Estate</span>
+              <div class="hcard__svc-bar"><div class="hcard__svc-fill" style="width:70%; animation-delay:0.2s"></div></div>
+            </div>
+            <div class="hcard__svc">
+              <span class="hcard__svc-dot"></span>
+              <span class="hcard__svc-name">Tourism</span>
+              <div class="hcard__svc-bar"><div class="hcard__svc-fill" style="width:60%; animation-delay:0.4s"></div></div>
+            </div>
+            <div class="hcard__svc">
+              <span class="hcard__svc-dot"></span>
+              <span class="hcard__svc-name">Arts &amp; Design</span>
+              <div class="hcard__svc-bar"><div class="hcard__svc-fill" style="width:90%; animation-delay:0.6s"></div></div>
+            </div>
+            <div class="hcard__svc">
+              <span class="hcard__svc-dot"></span>
+              <span class="hcard__svc-name">Contracts &amp; Retail</span>
+              <div class="hcard__svc-bar"><div class="hcard__svc-fill" style="width:75%; animation-delay:0.8s"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="sh sh--center reveal">
+      <p class="sh__label">Who We Are</p>
+      <h2 class="sh__title">Built on trust, driven by excellence</h2>
+    </div>
+    <p class="about__lead reveal">
+      RORA operates as <strong>RORA Innovative Ventures Limited</strong> and
+      <strong>Royal Rebirth Art</strong> — two registered entities united under one brand.
+      Our operations span investments, general contracts, supplies, merchandising,
+      and creative services, delivered with professionalism and integrity at the core.
+    </p>
+    <div class="pillars">
+      <div class="pillar reveal reveal-delay-1">
+        <div class="pillar__icon-wrap">🎯</div>
+        <h3 class="pillar__title">Our Mission</h3>
+        <p class="pillar__text">Provide innovative solutions across diverse sectors while maintaining the highest standards of quality and professionalism.</p>
+      </div>
+      <div class="pillar reveal reveal-delay-2">
+        <div class="pillar__icon-wrap">👁️</div>
+        <h3 class="pillar__title">Our Vision</h3>
+        <p class="pillar__text">Become the leading multi-sector enterprise in Nigeria, recognised for excellence, innovation, and lasting client satisfaction.</p>
+      </div>
+      <div class="pillar reveal reveal-delay-3">
+        <div class="pillar__icon-wrap">💎</div>
+        <h3 class="pillar__title">Our Values</h3>
+        <p class="pillar__text">Integrity, quality, professionalism, innovation, and an unwavering commitment to the people we serve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="sh reveal">
+      <p class="sh__label">What We Do</p>
+      <h2 class="sh__title">Comprehensive solutions<br>across multiple sectors</h2>
+      <p class="sh__sub">From livestock management to luxury interior design — RORA operates wherever your needs are.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc reveal reveal-delay-1">
+        <span class="svc__icon">🌾</span>
+        <h3 class="svc__title">Agriculture (Livestock)</h3>
+        <p class="svc__text">Professional livestock management, breeding programs, and agricultural consultancy for sustainable farming operations.</p>
+        <span class="svc__arrow">Learn more →</span>
+      </div>
+      <div class="svc reveal reveal-delay-2">
+        <span class="svc__icon">🏗️</span>
+        <h3 class="svc__title">Contracts, Supplies &amp; Merchandise</h3>
+        <p class="svc__text">General contracting, quality procurement, and merchandise solutions tailored to your business requirements.</p>
+        <span class="svc__arrow">Learn more →</span>
+      </div>
+      <div class="svc reveal reveal-delay-3">
+        <span class="svc__icon">🗺️</span>
+        <h3 class="svc__title">Tourism, Safari &amp; Adventure</h3>
+        <p class="svc__text">Curated travel experiences, safari packages, and adventure trips for individuals and organisations.</p>
+        <span class="svc__arrow">Learn more →</span>
+      </div>
+      <div class="svc reveal reveal-delay-1">
+        <span class="svc__icon">🎨</span>
+        <h3 class="svc__title">Arts, Interior &amp; Exterior Design</h3>
+        <p class="svc__text">Creative design, decorations, and custom furniture through Royal Rebirth Art — transforming spaces into experiences.</p>
+        <span class="svc__arrow">Learn more →</span>
+      </div>
+      <div class="svc reveal reveal-delay-2">
+        <span class="svc__icon">🏘️</span>
+        <h3 class="svc__title">Real Estate &amp; Properties</h3>
+        <p class="svc__text">Property management, sales, acquisitions, and investment consultancy across the Nigerian market.</p>
+        <span class="svc__arrow">Learn more →</span>
+      </div>
+      <div class="svc reveal reveal-delay-3">
+        <span class="svc__icon">🛒</span>
+        <h3 class="svc__title">Retailing (Mart)</h3>
+        <p class="svc__text">Quality retail solutions providing a wide range of products and merchandise to meet everyday consumer needs.</p>
+        <span class="svc__arrow">Learn more →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY RORA -->
+<section class="section why">
+  <div class="container">
+    <div class="sh sh--center reveal">
+      <p class="sh__label">Why RORA</p>
+      <h2 class="sh__title">Your success is our priority</h2>
+      <p class="sh__sub">Four principles that govern every engagement we take on.</p>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-item">
+        <span class="why-item__icon">✓</span>
+        <h3 class="why-item__title">Professional Excellence</h3>
+        <p class="why-item__text">Combined experience across sectors delivering outstanding, measurable results.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-item__icon">⚡</span>
+        <h3 class="why-item__title">Quality Assurance</h3>
+        <p class="why-item__text">Rigorous standards applied at every stage — every project exceeds expectations.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-item__icon">🤝</span>
+        <h3 class="why-item__title">Client-Centred Approach</h3>
+        <p class="why-item__text">Your needs drive our solutions. We listen, adapt, and deliver on your terms.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-item__icon">🔒</span>
+        <h3 class="why-item__title">Integrity &amp; Trust</h3>
+        <p class="why-item__text">Honesty, transparency, and ethical business practices — non-negotiable at RORA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section gallery" id="gallery">
+  <div class="container">
+    <div class="sh reveal">
+      <p class="sh__label">Our Work</p>
+      <h2 class="sh__title">A glimpse of what we build</h2>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item reveal">
+        <div class="gph gph-1">🌾</div>
+        <div class="gallery-item__overlay"><span class="gallery-item__label">Agriculture</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1">
+        <div class="gph gph-2">🏗️</div>
+        <div class="gallery-item__overlay"><span class="gallery-item__label">Construction</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2">
+        <div class="gph gph-3">🗺️</div>
+        <div class="gallery-item__overlay"><span class="gallery-item__label">Tourism</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1">
+        <div class="gph gph-4">🎨</div>
+        <div class="gallery-item__overlay"><span class="gallery-item__label">Arts &amp; Design</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2">
+        <div class="gph gph-5">🏘️</div>
+        <div class="gallery-item__overlay"><span class="gallery-item__label">Real Estate</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3">
+        <div class="gph gph-6">🛒</div>
+        <div class="gallery-item__overlay"><span class="gallery-item__label">Retail</span></div>
+      </div>
+    </div>
+    <div class="gallery-cta reveal">
+      <a href="#contact" class="btn btn--sky">Request Full Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-band__inner reveal">
+    <h2 class="cta-band__title">Ready to work together?</h2>
+    <p class="cta-band__sub">Tell us about your project — we'll respond within one business day.</p>
+    <div class="cta-band__actions">
+      <a href="#contact" class="btn btn--dark">Contact Us</a>
+      <a href="https://wa.me/234806042370" class="btn btn--white" target="_blank" rel="noopener">📱 WhatsApp Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="sh reveal">
+      <p class="sh__label">Get in Touch</p>
+      <h2 class="sh__title">We're here to help</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="cblock reveal reveal-delay-1">
+        <h3 class="cblock__title">Contact Information</h3>
+        <div class="crow">
+          <div class="crow__icon">📞</div>
+          <div>
+            <p class="crow__label">Phone</p>
+            <p class="crow__value"><a href="tel:+234806042370">+234 806 042 3700</a></p>
+          </div>
+        </div>
+        <div class="crow">
+          <div class="crow__icon">✉️</div>
+          <div>
+            <p class="crow__label">Email</p>
+            <p class="crow__value"><a href="mailto:info@rora.com">info@rora.com</a></p>
+          </div>
+        </div>
+        <div class="crow">
+          <div class="crow__icon">📱</div>
+          <div>
+            <p class="crow__label">WhatsApp</p>
+            <p class="crow__value">
+              <a href="https://wa.me/234806042370" target="_blank" rel="noopener" style="color:#25D366;font-weight:600;">
+                Message us — available 24/7
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="crow">
+          <div class="crow__icon">📍</div>
+          <div>
+            <p class="crow__label">Coverage</p>
+            <p class="crow__value">Serving clients nationwide across Nigeria</p>
+          </div>
+        </div>
+      </div>
+      <div class="cblock reveal reveal-delay-2">
+        <h3 class="cblock__title">Business Hours</h3>
+        <div class="hours-row">
+          <span class="hours-row__day">Monday – Friday</span>
+          <span class="hours-row__time">8:00 AM – 6:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-row__day">Saturday</span>
+          <span class="hours-row__time">9:00 AM – 4:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-row__day">Sunday</span>
+          <span class="hours-row__closed">Closed</span>
+        </div>
+        <p class="hours-note">Emergency services available upon request</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__grid">
+    <div>
+      <p class="footer__name">RORA</p>
+      <p class="footer__desc">
+        RORA Innovative Ventures Limited &amp; Royal Rebirth Art.<br>
+        Excellence in Agriculture, Contracts, Tourism, Design, Real Estate &amp; Retail.
+      </p>
+      <div class="socials">
+        <a href="https://www.facebook.com/royalrebirth.art" target="_blank" rel="noopener" class="soc" aria-label="Facebook">f</a>
+        <a href="#" class="soc" aria-label="Instagram">ig</a>
+        <a href="#" class="soc" aria-label="LinkedIn">in</a>
+        <a href="#" class="soc" aria-label="X">𝕏</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer__col-title">Navigate</p>
+      <ul class="footer__links">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer__col-title">Services</p>
+      <ul class="footer__links">
+        <li><a href="#services">Agriculture</a></li>
+        <li><a href="#services">Contracts &amp; Supplies</a></li>
+        <li><a href="#services">Tourism</a></li>
+        <li><a href="#services">Arts &amp; Design</a></li>
+        <li><a href="#services">Real Estate</a></li>
+        <li><a href="#services">Retailing</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer__col-title">Contact</p>
+      <div class="footer__citem">
+        <span>📞</span>
+        <a href="tel:+234806042370">+234 806 042 3700</a>
+      </div>
+      <div class="footer__citem">
+        <span>✉️</span>
+        <a href="mailto:info@rora.com">info@rora.com</a>
+      </div>
+      <div class="footer__citem">
+        <span>📱</span>
+        <a href="https://wa.me/234806042370" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+  <hr class="footer__hr"/>
+  <div class="footer__bottom">
+    <span>© 2025 RORA Innovative Ventures Limited &amp; Royal Rebirth Art. All rights reserved.</span>
+    <span>Serving Nigeria with excellence.</span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Mobile nav
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+  });
+
+  document.querySelectorAll('.nav__links a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // Backend API config fetch
+  async function initFromAPI() {
+    try {
+      const res = await fetch('/api/config');
+      if (!res.ok) return;
+      const cfg = await res.json();
+
+      if (cfg.whatsapp_number) {
+        const clean = cfg.whatsapp_number.replace(/\D/g, '');
+        document.querySelectorAll('[href*="wa.me"]').forEach(el => {
+          el.href = `https://wa.me/${clean}`;
+        });
+      }
+      if (cfg.phone_number) {
+        document.querySelectorAll('[href^="tel:"]').forEach(el => {
+          el.href = `tel:${cfg.phone_number}`;
+        });
+      }
+      if (cfg.email_address) {
+        document.querySelectorAll('[href^="mailto:"]').forEach(el => {
+          el.href = `mailto:${cfg.email_address}`;
+        });
+      }
+    } catch { /* API unavailable — static content serves fine */ }
+  }
+
+  initFromAPI();
+</script>
+</body>
+</html>
