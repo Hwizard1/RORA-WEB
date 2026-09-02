@@ -1101,7 +1101,7 @@
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
       <li>
-        <a href="https://wa.me/2348060423270" class="nav__cta" target="_blank" rel="noopener">
+        <a href="https://wa.me/234806042370" class="nav__cta" target="_blank" rel="noopener">
           WhatsApp
         </a>
       </li>
@@ -1133,7 +1133,7 @@
       </p>
       <div class="hero__actions">
         <a href="#contact" class="btn btn--sky">Start a Project</a>
-        <a href="https://wa.me/2348060423270" class="btn btn--outline" target="_blank" rel="noopener">
+        <a href="https://wa.me/234806042370" class="btn btn--outline" target="_blank" rel="noopener">
           📱 WhatsApp
         </a>
       </div>
@@ -1355,7 +1355,7 @@
     <p class="cta-band__sub">Tell us about your project — we'll respond within one business day.</p>
     <div class="cta-band__actions">
       <a href="#contact" class="btn btn--dark">Contact Us</a>
-      <a href="https://wa.me/2348060423270" class="btn btn--white" target="_blank" rel="noopener">📱 WhatsApp Now</a>
+      <a href="https://wa.me/234806042370" class="btn btn--white" target="_blank" rel="noopener">📱 WhatsApp Now</a>
     </div>
   </div>
 </section>
@@ -1374,7 +1374,7 @@
           <div class="crow__icon">📞</div>
           <div>
             <p class="crow__label">Phone</p>
-            <p class="crow__value"><a href="tel:+2348060423270">+234 806 042 32700</a></p>
+            <p class="crow__value"><a href="tel:+234806042370">+234 806 042 3700</a></p>
           </div>
         </div>
         <div class="crow">
@@ -1389,7 +1389,7 @@
           <div>
             <p class="crow__label">WhatsApp</p>
             <p class="crow__value">
-              <a href="https://wa.me/2348060423270" target="_blank" rel="noopener" style="color:#25D366;font-weight:600;">
+              <a href="https://wa.me/234806042370" target="_blank" rel="noopener" style="color:#25D366;font-weight:600;">
                 Message us — available 24/7
               </a>
             </p>
@@ -1464,7 +1464,7 @@
       <p class="footer__col-title">Contact</p>
       <div class="footer__citem">
         <span>📞</span>
-        <a href="tel:+2348060423270">+234 806 042 32700</a>
+        <a href="tel:+234806042370">+234 806 042 3700</a>
       </div>
       <div class="footer__citem">
         <span>✉️</span>
@@ -1516,6 +1516,94 @@
 
   revealEls.forEach(el => observer.observe(el));
 
+  // Gallery labels for overlay text
+  const GALLERY_LABELS = [
+    'Agriculture', 'Construction', 'Tourism',
+    'Arts & Design', 'Real Estate', 'Retail',
+    'Our Work', 'Our Work', 'Our Work',
+    'Our Work', 'Our Work', 'Our Work'
+  ];
+
+  // Placeholder icons shown when no image URL is set
+  const GALLERY_ICONS = ['🌾','🏗️','🗺️','🎨','🏘️','🛒','📸','📸','📸','📸','📸','📸'];
+
+  // Placeholder gradient classes for the first 6 slots
+  const GALLERY_CLASSES = ['gph-1','gph-2','gph-3','gph-4','gph-5','gph-6'];
+
+  function buildGalleryItem(index, imageUrl, label, icon) {
+    const item = document.createElement('div');
+    item.className = 'gallery-item reveal';
+
+    if (imageUrl) {
+      // Real image
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      img.alt = label;
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)';
+      img.onerror = function() {
+        // Swap to placeholder if image fails to load
+        this.replaceWith(makePlaceholder(index, icon));
+      };
+      item.appendChild(img);
+    } else {
+      item.appendChild(makePlaceholder(index, icon));
+    }
+
+    // Hover overlay label
+    const overlay = document.createElement('div');
+    overlay.className = 'gallery-item__overlay';
+    overlay.innerHTML = `<span class="gallery-item__label">${label}</span>`;
+    item.appendChild(overlay);
+
+    // Hover scale on the image itself
+    item.addEventListener('mouseenter', () => {
+      const img = item.querySelector('img');
+      if (img) img.style.transform = 'scale(1.06)';
+    });
+    item.addEventListener('mouseleave', () => {
+      const img = item.querySelector('img');
+      if (img) img.style.transform = 'scale(1)';
+    });
+
+    return item;
+  }
+
+  function makePlaceholder(index, icon) {
+    const ph = document.createElement('div');
+    const cls = GALLERY_CLASSES[index] || 'gph-1';
+    ph.className = `gph ${cls}`;
+    ph.textContent = icon;
+    return ph;
+  }
+
+  function renderGallery(images) {
+    const grid = document.getElementById('galleryGrid');
+    grid.innerHTML = '';
+
+    // Use at most 12 images; always show at least 6 slots
+    const slots = Math.max(6, Math.min(12, images.length));
+
+    images.slice(0, slots).forEach((url, i) => {
+      const item = buildGalleryItem(i, url, GALLERY_LABELS[i], GALLERY_ICONS[i]);
+
+      // Apply the asymmetric grid spans for the first 6
+      if (i === 0) item.style.gridColumn = 'span 7';
+      if (i === 0) item.style.gridRow    = 'span 2';
+      if (i === 1) item.style.gridColumn = 'span 5';
+      if (i === 2) item.style.gridColumn = 'span 5';
+      if (i === 3) item.style.gridColumn = 'span 4';
+      if (i === 4) item.style.gridColumn = 'span 4';
+      if (i === 5) item.style.gridColumn = 'span 4';
+      // Items 7-12: auto-placed, span 4 columns each
+      if (i >= 6)  item.style.gridColumn = 'span 4';
+
+      grid.appendChild(item);
+    });
+
+    // Re-observe new elements for scroll reveal
+    grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
+
   // Backend API config fetch
   async function initFromAPI() {
     try {
@@ -1523,6 +1611,7 @@
       if (!res.ok) return;
       const cfg = await res.json();
 
+      // Update contact links
       if (cfg.whatsapp_number) {
         const clean = cfg.whatsapp_number.replace(/\D/g, '');
         document.querySelectorAll('[href*="wa.me"]').forEach(el => {
@@ -1539,17 +1628,34 @@
           el.href = `mailto:${cfg.email_address}`;
         });
       }
-    } catch { /* API unavailable — static content serves fine */ }
+
+      // Build gallery from all image slots (1–12)
+      const galleryImages = [
+        cfg.gallery_image_1,  cfg.gallery_image_2,  cfg.gallery_image_3,
+        cfg.gallery_image_4,  cfg.gallery_image_5,  cfg.gallery_image_6,
+        cfg.gallery_image_7,  cfg.gallery_image_8,  cfg.gallery_image_9,
+        cfg.gallery_image_10, cfg.gallery_image_11, cfg.gallery_image_12,
+      ];
+
+      // Only re-render if at least one URL is set
+      const hasImages = galleryImages.some(url => url && url.trim() !== '');
+      if (hasImages) {
+        renderGallery(galleryImages);
+      }
+
+    } catch { /* API unavailable — static placeholders already displayed */ }
   }
 
-renderGallery([
-'https://i.imgur.com/TP6HKLa.png',
-'https://i.imgur.com/ufqpkp9.png ',
-'https://i.imgur.com/s3z40VY.png',
-'https://i.imgur.com/aJyapnI.png ', 
-'https://i.imgur.com/w3qim6q.png ',
-'https://i.imgur.com/Ca8DeS3.jpeg',
-]);
+  // ── Load your gallery images here ──
+  // Add or remove URLs as needed. Trailing spaces are trimmed automatically.
+  renderGallery([
+    'https://i.imgur.com/TP6HKLa.png',
+    'https://i.imgur.com/ufqpkp9.png',
+    'https://i.imgur.com/s3z40VY.png',
+    'https://i.imgur.com/aJyapnI.png',
+    'https://i.imgur.com/w3qim6q.png',
+    'https://i.imgur.com/Ca8DeS3.jpeg',
+  ]);
 </script>
 </body>
 </html>
